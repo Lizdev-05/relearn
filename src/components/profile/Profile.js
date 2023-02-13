@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "../UI/card/Card";
 import styles from "./Profile.module.css";
-import { BiTrash } from "react-icons/bi";
+
 import {
   AiOutlineTwitter,
   AiOutlineGithub,
@@ -30,7 +30,6 @@ const Profile = ({ id, img, name, job, company, link }) => {
           </div>
 
           <a href={link}>Link</a>
-          <BiTrash color="red" size={22} onClick={() => removePerson(id)} />
 
           <div className={styles.icons}>
             <AiOutlineTwitter />
