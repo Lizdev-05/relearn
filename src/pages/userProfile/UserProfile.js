@@ -29,6 +29,9 @@ const UserProfile = ({ id, image, name, job }) => {
           </div>
         );
       })}
+      <button className="--btn --btn-danger" onClick={() => setUsers([])}>
+        Delete All
+      </button>
     </>
   );
 };
