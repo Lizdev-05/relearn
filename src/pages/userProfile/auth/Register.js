@@ -12,17 +12,15 @@ const Register = () => {
         <form className="--form-control">
           <h2 className="--color-danger --text-center">Register</h2>
           <input type="text" className="--width-100" placeholder="Username" />
+          <input type="email" className="--width-100" placeholder="Email" />
           <div className="password">
             <input className="--width-100" placeholder="Password" />
           </div>
           <button className="--btn --btn-primary --btn-block">Register</button>
-          <a href="#" className="--text-sm">
-            Forgot password
-          </a>
           <span className="--text-sm --block">
-            Don't have an account?{" "}
+            Have an account?{" "}
             <a href="#" className="--text-sm">
-              Register
+              Login
             </a>
           </span>
         </form>
