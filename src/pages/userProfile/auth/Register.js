@@ -1,5 +1,6 @@
 import React from "react";
-import registerImg from "../../assets/register.svg";
+import registerImg from "../../../assets/register.svg";
+import "./AuthContainer.scss";
 
 const Register = () => {
   return (

@@ -1,5 +1,6 @@
 import React from "react";
-import loginImg from "../../assets/login.svg";
+import loginImg from "../../../assets/login.svg";
+import "./AuthContainer.scss";
 
 const Login = () => {
   return (
