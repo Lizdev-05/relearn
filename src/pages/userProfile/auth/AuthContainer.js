@@ -13,10 +13,15 @@ const AuthContainer = () => {
     setLogin(false);
     setRegister(true);
   };
+
+  const resetHandler = () => {
+    setLogin(false);
+    setReset(true);
+  };
   return (
     <section className="--flex-center --100vh">
       <div className="container box">
-        {login && <Login onRegister={registerHandler} />}
+        {login && <Login onRegister={registerHandler} onReset={resetHandler} />}
         {register && <Register />}
         {reset && <Reset />}
       </div>
