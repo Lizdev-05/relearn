@@ -5,30 +5,43 @@ import Register from "./Register";
 import Reset from "./Reset";
 
 const AuthContainer = () => {
-  const [login, setLogin] = useState(true);
-  const [register, setRegister] = useState(false);
-  const [reset, setReset] = useState(false);
+  //   const [login, setLogin] = useState(true);
+  //   const [register, setRegister] = useState(false);
+  //   const [reset, setReset] = useState(false);
+
+  const [auth, setAuth] = useState({
+    login: true,
+    register: false,
+    reset: false,
+  });
 
   const loginHandler = () => {
-    setRegister(false);
-    setLogin(true);
+    // setLogin(true);
+    // setReset(false);
+    // setRegister(false);
+    setAuth({ login: true, register: false, reset: false });
   };
   const registerHandler = () => {
-    setLogin(false);
-    setRegister(true);
+    // setLogin(false);
+    // setRegister(true);
+    // setReset(false);
+    setAuth({ login: false, register: true, reset: false });
   };
 
   const resetHandler = () => {
-    setLogin(false);
-    setReset(true);
+    // setLogin(false);
+    // setReset(true);
+    // setRegister(false);
+    setAuth({ login: false, register: false, reset: true });
   };
   return (
     <section className="--flex-center --100vh">
       <div className="container box">
-        {login && <Login onRegister={registerHandler} onReset={resetHandler} />}
-        {register && <Register onLogin={loginHandler} />}
-        {reset && <Reset ster={registerHandler} onReset={resetHandler} />}
-        {register && <Register onLogin={loginHandler} />}
+        {auth.login && (
+          <Login onRegister={registerHandler} onReset={resetHandler} />
+        )}
+        {auth.register && <Register onLogin={loginHandler} />}
+        {auth.reset && <Reset onLogin={loginHandler} />}
       </div>
     </section>
   );

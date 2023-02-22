@@ -3,7 +3,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import resetImg from "../../../assets/forgot.svg";
 import "./AuthContainer.scss";
 
-const Reset = (onLogin) => {
+const Reset = ({ onLogin }) => {
   return (
     <div className="main-container --flex-center">
       <div className="form-container reset">
