@@ -9,6 +9,10 @@ const AuthContainer = () => {
   const [register, setRegister] = useState(false);
   const [reset, setReset] = useState(false);
 
+  const loginHandler = () => {
+    setRegister(false);
+    setLogin(true);
+  };
   const registerHandler = () => {
     setLogin(false);
     setRegister(true);
@@ -22,8 +26,9 @@ const AuthContainer = () => {
     <section className="--flex-center --100vh">
       <div className="container box">
         {login && <Login onRegister={registerHandler} onReset={resetHandler} />}
-        {register && <Register />}
-        {reset && <Reset />}
+        {register && <Register onLogin={loginHandler} />}
+        {reset && <Reset ster={registerHandler} onReset={resetHandler} />}
+        {register && <Register onLogin={loginHandler} />}
       </div>
     </section>
   );
