@@ -12,8 +12,8 @@ const AuthContainer = () => {
     <section className="--flex-center --100vh">
       <div className="container box">
         {login && <Login />}
+        {register && <Register />}
 
-        {/* <Register /> */}
         <Reset />
       </div>
     </section>
