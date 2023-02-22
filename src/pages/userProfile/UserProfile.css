@@ -1,0 +1,18 @@
+.profile {
+  min-width: 35rem;
+  border: 1px solid #fff;
+  margin-bottom: 1rem;
+  background-color: var(--dark-blue);
+}
+.profile img {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+}
+.profile .icon {
+  color: #fff;
+  cursor: pointer;
+}
+.profile .icon:hover {
+  color: red;
+}/*# sourceMappingURL=UserProfile.css.map */
