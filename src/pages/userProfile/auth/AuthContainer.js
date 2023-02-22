@@ -13,8 +13,7 @@ const AuthContainer = () => {
       <div className="container box">
         {login && <Login />}
         {register && <Register />}
-
-        <Reset />
+        {reset && <Reset />}
       </div>
     </section>
   );
