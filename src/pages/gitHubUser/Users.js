@@ -34,7 +34,12 @@ const Users = () => {
         <h2 className="--text-center --text-light">GitHub Users</h2>
         <div className="--line"></div>
         {isLoading ? (
-          <img src={spinner} alt="loading" />
+          <img
+            src={spinner}
+            alt="loading"
+            className="--center-all"
+            width={100}
+          />
         ) : (
           <div className="--grid-25 --py">
             {user.map((u) => {
