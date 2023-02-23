@@ -1,28 +1,26 @@
 import React from "react";
-import loginImg from "../../../assets/login.svg";
+import registerImg from "../../assets/register.svg";
 import "./AuthContainer.scss";
 
-const Login = ({ onRegister, onReset }) => {
+const Register = ({ onLogin }) => {
   return (
     <div className="main-container --flex-center">
       <div className="img-container">
-        <img src={loginImg} alt="login" />
+        <img src={registerImg} alt="register" />
       </div>
       <div className="form-container">
         <form className="--form-control">
-          <h2 className="--color-danger --text-center">Login</h2>
+          <h2 className="--color-danger --text-center">Register</h2>
           <input type="text" className="--width-100" placeholder="Username" />
+          <input type="email" className="--width-100" placeholder="Email" />
           <div className="password">
             <input className="--width-100" placeholder="Password" />
           </div>
-          <button className="--btn --btn-primary --btn-block">Login</button>
-          <a href="#" className="--text-sm" onClick={onReset}>
-            Forgot password
-          </a>
+          <button className="--btn --btn-primary --btn-block">Register</button>
           <span className="--text-sm --block">
-            Don't have an account?{" "}
-            <a href="#" className="--text-sm" onClick={onRegister}>
-              Register
+            Have an account?{" "}
+            <a href="#" className="--text-sm" onClick={onLogin}>
+              Login
             </a>
           </span>
         </form>
@@ -31,4 +29,4 @@ const Login = ({ onRegister, onReset }) => {
   );
 };
 
-export default Login;
+export default Register;
