@@ -2,7 +2,7 @@ import React from "react";
 import registerImg from "../../../assets/register.svg";
 import "./AuthContainer.scss";
 
-const Register = () => {
+const Register = ({ onLogin }) => {
   return (
     <div className="main-container --flex-center">
       <div className="img-container">
@@ -19,7 +19,7 @@ const Register = () => {
           <button className="--btn --btn-primary --btn-block">Register</button>
           <span className="--text-sm --block">
             Have an account?{" "}
-            <a href="#" className="--text-sm">
+            <a href="#" className="--text-sm" onClick={onLogin}>
               Login
             </a>
           </span>
