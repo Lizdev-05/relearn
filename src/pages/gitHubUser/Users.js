@@ -4,17 +4,25 @@ import profile1 from "../../assets/profile1.png";
 const Users = () => {
   const [user, setUser] = useState([]);
 
-  const jokeUrl = "https://api.github.com/users";
+  const userUrl = "https://api.github.com/users";
+
+  const getUser = async () => {
+    const response = await fetch(userUrl);
+    const data = await response.json();
+    setUser(data);
+  };
 
   useEffect(() => {
-    fetch(jokeUrl)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-        setUser(data);
-      });
+    // fetch(userUrl)
+    //   .then((response) => {
+    //     return response.json();
+    //   })
+    //   .then((data) => {
+    //     console.log(data);
+    //     setUser(data);
+    //   });
+
+    getUser();
   }, []);
 
   return (
