@@ -8,6 +8,7 @@ const Joke = () => {
   const jokeUrl = "https://api.chucknorris.io/jokes/random";
 
   const getJoke = () => {
+    setIsLoading(true);
     fetch(jokeUrl)
       .then((response) => {
         return response.json();
