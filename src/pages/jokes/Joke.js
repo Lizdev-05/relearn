@@ -7,7 +7,7 @@ const Joke = () => {
 
   const jokeUrl = "https://api.chucknorris.io/jokes/random";
 
-  useEffect(() => {
+  const getJoke = () => {
     fetch(jokeUrl)
       .then((response) => {
         return response.json();
@@ -17,6 +17,10 @@ const Joke = () => {
         setJoke(data);
         setIsLoading(false);
       });
+  };
+
+  useEffect(() => {
+    getJoke();
   }, []);
 
   return (
@@ -36,7 +40,9 @@ const Joke = () => {
         )}
 
         <br />
-        <button className="--btn --btn-primary">Generate Jokes</button>
+        <button className="--btn --btn-primary" onClick={getJoke}>
+          Generate Jokes
+        </button>
       </div>
       ;
     </section>
