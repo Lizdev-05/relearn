@@ -4,18 +4,18 @@ import spinner from "../../assets/spinner.jpg";
 const Joke = () => {
   const [joke, setJoke] = useState({});
 
-  //   const jokeUrl = "https://api.chucknorris.io/jokes/random";
+  const jokeUrl = "https://api.chucknorris.io/jokes/random";
 
-  //   useEffect(() => {
-  //     fetch(jokeUrl)
-  //       .then((response) => {
-  //         return response.json();
-  //       })
-  //       .then((data) => {
-  //         console.log(data);
-  //         setJoke(data);
-  //       });
-  //   }, []);
+  useEffect(() => {
+    fetch(jokeUrl)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setJoke(data);
+      });
+  }, []);
 
   return (
     <section className="--flex-center --100vh --bg-primary">
