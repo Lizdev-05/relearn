@@ -1,6 +1,6 @@
 import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import resetImg from "../../../assets/forgot.svg";
+import resetImg from "../../assets/forgot.svg";
 import "./AuthContainer.scss";
 
 const Reset = ({ onLogin }) => {
