@@ -32,13 +32,13 @@ const Users = () => {
         <div className="--line"></div>
         <div className="--grid-25 --py">
           {user.map((u) => {
-            const { avatar_url, login } = u;
+            const { avatar_url, login, id, html_url } = u;
             return (
-              <div className="--card --bg-light --p --flex-start">
+              <div className="--card --bg-light --p --flex-start" key={id}>
                 <img src={avatar_url} alt="" className="--profile-img --mx" />
                 <span>
                   <h2>{login} </h2>
-                  <p>view profile</p>
+                  <a href={html_url}>view profile</a>
                 </span>
               </div>
             );
