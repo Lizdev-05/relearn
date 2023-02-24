@@ -6,21 +6,22 @@ const Users = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  const userUrl = "https://api.github.com/users";
+  const userUrl = "httpsd://api.github.com/users";
 
   const getUser = async () => {
     setIsLoading(true);
     try {
       const response = await fetch(userUrl);
       if (!response.ok) {
-        throw new Error("Something went wrong");
+        throw new Error("Seems like something is not right!");
       }
       const data = await response.json();
       setUser(data);
       setIsLoading(false);
-    } catch (error) {
+    } catch (err) {
       console.log(err.message);
       setError(true);
+      setIsLoading(false);
     }
   };
 
@@ -46,18 +47,28 @@ const Users = () => {
           <h2 className="--text-light --center-all">Loading...</h2>
         ) : (
           <div className="--grid-25 --py">
-            {user.map((u) => {
-              const { avatar_url, login, id, html_url } = u;
-              return (
-                <div className="--card --bg-light --p --flex-start" key={id}>
-                  <img src={avatar_url} alt="" className="--profile-img --mx" />
-                  <span>
-                    <h2>{login} </h2>
-                    <a href={html_url}>view profile</a>
-                  </span>
-                </div>
-              );
-            })}
+            {error ? (
+              <h2 className="--text-light --center-all">
+                Something went wrong!
+              </h2>
+            ) : (
+              user.map((u) => {
+                const { avatar_url, login, id, html_url } = u;
+                return (
+                  <div className="--card --bg-light --p --flex-start" key={id}>
+                    <img
+                      src={avatar_url}
+                      alt=""
+                      className="--profile-img --mx"
+                    />
+                    <span>
+                      <h2>{login} </h2>
+                      <a href={html_url}>view profile</a>
+                    </span>
+                  </div>
+                );
+              })
+            )}
           </div>
         )}
       </div>
