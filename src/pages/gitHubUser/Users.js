@@ -6,7 +6,7 @@ const Users = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  const userUrl = "httpsd://api.github.com/users";
+  const userUrl = "https://api.github.com/users";
 
   const getUser = async () => {
     setIsLoading(true);
