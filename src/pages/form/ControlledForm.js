@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
 const ControlledForm = () => {
+  const [name, setName] = useState("");
+  const [job, setJob] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(name, job);
+  };
   return (
     <div className="--bg-primary --mh-100vh">
       <h1 className="--flex-center"> Controlled Form</h1>
