@@ -13,12 +13,12 @@ const ControlledForm = () => {
   return (
     <div className="--bg-primary --mh-100vh">
       <h1 className="--flex-center"> Controlled Form</h1>
-      <div className="--card --width-500px --bg-light --flex-center --center-all">
+      <div className="--card --width-500px --bg-light --flex-center ">
         <div className=" --flex-center">
-          <form action="" onSubmit={handleSubmit}>
+          <form action="" onSubmit={handleSubmit} className="--form-control">
             <div>
               <label htmlFor="name" name="name">
-                Name
+                Name :
               </label>
               <input
                 type="text"
@@ -30,7 +30,7 @@ const ControlledForm = () => {
             </div>
             <div>
               <label htmlFor="job" name="job">
-                Job
+                Job :
               </label>
               <input
                 type="text"
@@ -40,6 +40,8 @@ const ControlledForm = () => {
                 }}
               />
             </div>
+
+            <button className="--btn --btn-primary">Submit</button>
           </form>
         </div>
       </div>
