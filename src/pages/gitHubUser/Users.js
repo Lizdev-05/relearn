@@ -4,15 +4,24 @@ import spinner from "../../assets/spinner.jpg";
 const Users = () => {
   const [user, setUser] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   const userUrl = "https://api.github.com/users";
 
   const getUser = async () => {
     setIsLoading(true);
-    const response = await fetch(userUrl);
-    const data = await response.json();
-    setUser(data);
-    setIsLoading(false);
+    try {
+      const response = await fetch(userUrl);
+      if (!response.ok) {
+        throw new Error("Something went wrong");
+      }
+      const data = await response.json();
+      setUser(data);
+      setIsLoading(false);
+    } catch (error) {
+      console.log(err.message);
+      setError(true);
+    }
   };
 
   useEffect(() => {
@@ -34,12 +43,7 @@ const Users = () => {
         <h2 className="--text-center --text-light">GitHub Users</h2>
         <div className="--line"></div>
         {isLoading ? (
-          <img
-            src={spinner}
-            alt="loading"
-            className="--center-all"
-            width={100}
-          />
+          <h2 className="--text-light --center-all">Loading...</h2>
         ) : (
           <div className="--grid-25 --py">
             {user.map((u) => {
