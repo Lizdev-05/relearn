@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 const UnControlledForm = () => {
   const nameInputRef = useRef(null);
@@ -10,6 +10,11 @@ const UnControlledForm = () => {
     const jobInput = jobInputRef.current.value;
     console.log(nameInput, jobInput);
   };
+
+  useEffect(() => {
+    nameInputRef.current.focus();
+  }, []);
+
   return (
     <div className="--bg-primary --mh-100vh">
       <h1 className="--flex-center"> Controlled Form</h1>
