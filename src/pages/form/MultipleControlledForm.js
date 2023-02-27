@@ -4,8 +4,8 @@ const MultipleControlledForm = () => {
   const [person, setPerson] = useState({
     name: "",
     job: "",
-    // age: "",
-    // company: "",
+    age: 0,
+    company: "",
   });
 
   const handleChange = (e) => {
@@ -18,6 +18,7 @@ const MultipleControlledForm = () => {
     e.preventDefault();
     const newPerson = person;
     console.log(newPerson);
+    setPerson({ name: "", age: 0, job: "", company: "" });
   };
 
   return (
@@ -29,8 +30,8 @@ const MultipleControlledForm = () => {
             <div>
               <label htmlFor="name">Name :</label>
               <input
-                name="name"
                 type="text"
+                name="name"
                 value={person.name}
                 onChange={handleChange}
               />
@@ -41,6 +42,24 @@ const MultipleControlledForm = () => {
                 type="text"
                 name="job"
                 value={person.job}
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="age">Age :</label>
+              <input
+                type="number"
+                name="age"
+                value={person.age}
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="company">Company :</label>
+              <input
+                type="text"
+                name="company"
+                value={person.company}
                 onChange={handleChange}
               />
             </div>
