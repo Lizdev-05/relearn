@@ -4,6 +4,7 @@ import ProfileList from "./components/profile/ProfileList";
 import UseState from "./components/useState/UseStateArray";
 import AuthContainer from "./pages/auth/AuthContainer";
 import ControlledForm from "./pages/form/ControlledForm";
+import MultipleControlledForm from "./pages/form/MultipleControlledForm";
 import Users from "./pages/gitHubUser/Users";
 import Joke from "./pages/jokes/Joke";
 import UserProfile from "./pages/userProfile/UserProfile";
@@ -11,7 +12,8 @@ import UserProfile from "./pages/userProfile/UserProfile";
 function App() {
   return (
     <div>
-      <ControlledForm />
+      <MultipleControlledForm />
+      {/* <ControlledForm /> */}
       {/* <Users /> */}
       {/* <Joke /> */}
       {/* <AuthContainer /> */}

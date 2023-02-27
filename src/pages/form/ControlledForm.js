@@ -13,8 +13,8 @@ const ControlledForm = () => {
   return (
     <div className="--bg-primary --mh-100vh">
       <h1 className="--flex-center"> Controlled Form</h1>
-      <div className="--card --width-500px --bg-light --flex-center ">
-        <div className=" --flex-center">
+      <div className=" --flex-center">
+        <div className="--card --width-500px --bg-light --flex-center">
           <form action="" onSubmit={handleSubmit} className="--form-control">
             <div>
               <label htmlFor="name" name="name">
@@ -41,7 +41,7 @@ const ControlledForm = () => {
               />
             </div>
 
-            <button className="--btn --btn-primary">Submit</button>
+            <button className="--btn --btn-block">Submit</button>
           </form>
         </div>
       </div>
