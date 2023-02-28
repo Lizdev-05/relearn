@@ -22,7 +22,11 @@ const Register = ({ onLogin }) => {
           <input type="text" className="--width-100" placeholder="Username" />
           <input type="email" className="--width-100" placeholder="Email" />
           <div className="password">
-            <input className="--width-100" placeholder="Password" />
+            <input
+              className="--width-100"
+              placeholder="Password"
+              type={showPassword ? "text" : "password"}
+            />
             <span onClick={handleClick} className="icon">
               {" "}
               {showPassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
