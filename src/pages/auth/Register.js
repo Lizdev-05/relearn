@@ -4,11 +4,11 @@ import registerImg from "../../assets/register.svg";
 import "./AuthContainer.scss";
 
 const Register = ({ onLogin }) => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
   // const [isInVisible, setIsInVisible] = useState(false);
 
   const handleClick = () => {
-    setIsVisible(false);
+    setShowPassword(!showPassword);
   };
 
   return (
@@ -25,7 +25,7 @@ const Register = ({ onLogin }) => {
             <input className="--width-100" placeholder="Password" />
             <span onClick={handleClick} className="icon">
               {" "}
-              {isVisible ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
+              {showPassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
             </span>
           </div>
           <button className="--btn --btn-primary --btn-block">Register</button>
