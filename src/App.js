@@ -13,12 +13,12 @@ import UserProfile from "./pages/userProfile/UserProfile";
 function App() {
   return (
     <div>
-      <UnControlledForm />
+      {/* <UnControlledForm /> */}
       {/* <MultipleControlledForm /> */}
       {/* <ControlledForm /> */}
       {/* <Users /> */}
       {/* <Joke /> */}
-      {/* <AuthContainer /> */}
+      <AuthContainer />
       {/* <UserProfile /> */}
       {/* <UseState /> */}
       {/* <ProfileList /> */}

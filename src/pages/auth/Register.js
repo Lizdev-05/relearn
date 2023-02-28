@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import registerImg from "../../assets/register.svg";
 import "./AuthContainer.scss";
 
 const Register = ({ onLogin }) => {
+  const [isVisible, setIsVisible] = useState(true);
+  // const [isInVisible, setIsInVisible] = useState(false);
+
+  const handleClick = () => {
+    setIsVisible(false);
+  };
+
   return (
     <div className="main-container --flex-center">
       <div className="img-container">
@@ -15,6 +23,10 @@ const Register = ({ onLogin }) => {
           <input type="email" className="--width-100" placeholder="Email" />
           <div className="password">
             <input className="--width-100" placeholder="Password" />
+            <span onClick={handleClick} className="icon">
+              {" "}
+              {isVisible ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
+            </span>
           </div>
           <button className="--btn --btn-primary --btn-block">Register</button>
           <span className="--text-sm --block">
