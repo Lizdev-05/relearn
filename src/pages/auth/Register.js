@@ -4,13 +4,11 @@ import registerImg from "../../assets/register.svg";
 import "./AuthContainer.scss";
 
 const Register = ({ onLogin }) => {
-  const [showPassword, setShowPassword] = useState(false);
-  // const [isInVisible, setIsInVisible] = useState(false);
+  const [showPAssword, setShowPAssword] = useState(false);
 
-  const handleClick = () => {
-    setShowPassword(!showPassword);
+  const handleToggleClick = () => {
+    setShowPAssword(!showPAssword);
   };
-
   return (
     <div className="main-container --flex-center">
       <div className="img-container">
@@ -23,15 +21,15 @@ const Register = ({ onLogin }) => {
           <input type="email" className="--width-100" placeholder="Email" />
           <div className="password">
             <input
+              type={showPAssword ? "text" : "password"}
               className="--width-100"
               placeholder="Password"
-              type={showPassword ? "text" : "password"}
             />
-            <span onClick={handleClick} className="icon">
-              {" "}
-              {showPassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
+            <span className="icon" onClick={handleToggleClick}>
+              {showPAssword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
             </span>
           </div>
+
           <button className="--btn --btn-primary --btn-block">Register</button>
           <span className="--text-sm --block">
             Have an account?{" "}
