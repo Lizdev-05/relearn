@@ -6,9 +6,14 @@ import { GoPrimitiveDot } from "react-icons/go";
 
 const Register = ({ onLogin }) => {
   const [showPAssword, setShowPAssword] = useState(false);
+  const [showIndicator, setShowIndicator] = useState(false);
 
   const handleToggleClick = () => {
     setShowPAssword(!showPAssword);
+  };
+
+  const handleShowIndicator = () => {
+    setShowIndicator(true);
   };
   return (
     <div className="main-container --flex-center">
@@ -25,6 +30,7 @@ const Register = ({ onLogin }) => {
               type={showPAssword ? "text" : "password"}
               className="--width-100"
               placeholder="Password"
+              onFocus={handleShowIndicator}
             />
             <span className="icon" onClick={handleToggleClick}>
               {showPAssword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
@@ -38,7 +44,7 @@ const Register = ({ onLogin }) => {
               Login
             </a>
           </span>
-          <div>
+          <div className={showIndicator ? "show-indicator" : "hide-indicator"}>
             <ul className="--list-style-none --card --bg-grey --text-sm --p">
               <p className="--text-sm">Password strength indicator</p>
               <span className="--align-center">
