@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import registerImg from "../../assets/register.svg";
 import "./AuthContainer.scss";
+import { GoPrimitiveDot } from "react-icons/go";
 
 const Register = ({ onLogin }) => {
   const [showPAssword, setShowPAssword] = useState(false);
@@ -37,6 +38,35 @@ const Register = ({ onLogin }) => {
               Login
             </a>
           </span>
+          <div>
+            <ul>
+              <p>Password strength indicator</p>
+              <span>
+                <li>
+                  <GoPrimitiveDot />
+                  &nbsp; Lowercase & Uppercase
+                </li>
+              </span>
+              <span>
+                <li>
+                  <GoPrimitiveDot />
+                  &nbsp; Numbers (0-9)
+                </li>
+              </span>
+              <span>
+                <li>
+                  <GoPrimitiveDot />
+                  &nbsp; Special Character ( !@#$%^&*)
+                </li>
+              </span>
+              <span>
+                <li>
+                  <GoPrimitiveDot />
+                  &nbsp; At least 8 Character
+                </li>
+              </span>
+            </ul>
+          </div>
         </form>
       </div>
     </div>
