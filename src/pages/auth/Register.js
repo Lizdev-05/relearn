@@ -39,27 +39,27 @@ const Register = ({ onLogin }) => {
             </a>
           </span>
           <div>
-            <ul>
-              <p>Password strength indicator</p>
-              <span>
+            <ul className="--list-style-none --card --bg-grey --text-sm --p">
+              <p className="--text-sm">Password strength indicator</p>
+              <span className="--align-center">
                 <li>
                   <GoPrimitiveDot />
                   &nbsp; Lowercase & Uppercase
                 </li>
               </span>
-              <span>
+              <span className="--align-center">
                 <li>
                   <GoPrimitiveDot />
                   &nbsp; Numbers (0-9)
                 </li>
               </span>
-              <span>
+              <span className="--align-center">
                 <li>
                   <GoPrimitiveDot />
                   &nbsp; Special Character ( !@#$%^&*)
                 </li>
               </span>
-              <span>
+              <span className="--align-center">
                 <li>
                   <GoPrimitiveDot />
                   &nbsp; At least 8 Character
