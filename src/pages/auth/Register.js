@@ -30,6 +30,11 @@ const Register = ({ onLogin }) => {
     if (pass.match(/([!,%,&,@,#,$,^,*,?,_,~])/)) {
       setPassChar(true);
     } else setPassChar(false);
+
+    //Length Checker
+    if (pass.length > 7) {
+      setPassLength(true);
+    } else setPassLength(false);
   }, [pass]);
 
   const handleToggleClick = () => {
