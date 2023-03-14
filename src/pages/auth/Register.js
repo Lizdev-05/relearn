@@ -15,6 +15,8 @@ const Register = ({ onLogin }) => {
   const [passChar, setPassChar] = useState(false);
   const [passLength, setPassLength] = useState(false);
 
+  const [passComplete, setPassComplete] = useState(false);
+
   useEffect(() => {
     //Letters Checker
     if (pass.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/)) {
@@ -35,7 +37,12 @@ const Register = ({ onLogin }) => {
     if (pass.length > 7) {
       setPassLength(true);
     } else setPassLength(false);
-  }, [pass]);
+
+    // Password Complete
+    if (passLetters && passNumbers && passChar && passLength) {
+      setPassComplete(true);
+    } else setPassComplete(false);
+  }, [pass, passLetters, passNumbers, passChar, passLength]);
 
   const handleToggleClick = () => {
     setShowPAssword(!showPAssword);
@@ -73,7 +80,16 @@ const Register = ({ onLogin }) => {
             </span>
           </div>
 
-          <button className="--btn --btn-primary --btn-block">Register</button>
+          <button
+            disabled={!passComplete}
+            className={
+              passComplete
+                ? "--btn --btn-primary --btn-block"
+                : "--btn --btn-primary --btn-block btn-disabled"
+            }
+          >
+            Register
+          </button>
           <span className="--text-sm --block">
             Have an account?{" "}
             <a href="#" className="--text-sm" onClick={onLogin}>
@@ -102,8 +118,8 @@ const Register = ({ onLogin }) => {
                 </li>
               </span>
               <span className="--align-center">
-                <li>
-                  <GoPrimitiveDot />
+                <li className={passLength ? "pass-green" : "pass-red"}>
+                  {passLength ? <FaCheck /> : <GoPrimitiveDot />}
                   &nbsp; At least 8 Character
                 </li>
               </span>
