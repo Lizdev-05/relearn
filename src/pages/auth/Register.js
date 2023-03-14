@@ -5,8 +5,8 @@ import "./AuthContainer.scss";
 import { GoPrimitiveDot } from "react-icons/go";
 import { FaCheck } from "react-icons/fa";
 
-const Register = ({ onLogin }) => {
-  const [showPAssword, setShowPAssword] = useState(false);
+const Register = ({ onLogin, onShowPAssword, onHandleToggleClick }) => {
+  // const [showPAssword, setShowPAssword] = useState(false);
   const [showIndicator, setShowIndicator] = useState(false);
   const [pass, setPass] = useState("");
 
@@ -44,9 +44,9 @@ const Register = ({ onLogin }) => {
     } else setPassComplete(false);
   }, [pass, passLetters, passNumbers, passChar, passLength]);
 
-  const handleToggleClick = () => {
-    setShowPAssword(!showPAssword);
-  };
+  // const handleToggleClick = () => {
+  //   setShowPAssword(!showPAssword);
+  // };
 
   const handleShowIndicator = () => {
     setShowIndicator(true);
@@ -68,15 +68,15 @@ const Register = ({ onLogin }) => {
           <input type="email" className="--width-100" placeholder="Email" />
           <div className="password">
             <input
-              type={showPAssword ? "text" : "password"}
+              type={onShowPAssword ? "text" : "password"}
               className="--width-100"
               placeholder="Password"
               onFocus={handleShowIndicator}
               value={pass}
               onChange={handlePasslick}
             />
-            <span className="icon" onClick={handleToggleClick}>
-              {showPAssword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
+            <span className="icon" onClick={onHandleToggleClick}>
+              {onShowPAssword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
             </span>
           </div>
 
