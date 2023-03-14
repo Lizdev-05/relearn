@@ -44,7 +44,12 @@ const AuthContainer = () => {
     <section className="--flex-center --100vh">
       <div className="container box">
         {auth.login && (
-          <Login onRegister={registerHandler} onReset={resetHandler} />
+          <Login
+            onRegister={registerHandler}
+            onReset={resetHandler}
+            onShowPAssword={showPAssword}
+            onHandleToggleClick={handleToggleClick}
+          />
         )}
         {auth.register && (
           <Register

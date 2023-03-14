@@ -52,7 +52,7 @@ const Register = ({ onLogin, onShowPAssword, onHandleToggleClick }) => {
     setShowIndicator(true);
   };
 
-  const handlePasslick = (e) => {
+  const handlePassClick = (e) => {
     setPass(e.target.value);
     console.log(pass);
   };
@@ -73,7 +73,7 @@ const Register = ({ onLogin, onShowPAssword, onHandleToggleClick }) => {
               placeholder="Password"
               onFocus={handleShowIndicator}
               value={pass}
-              onChange={handlePasslick}
+              onChange={handlePassClick}
             />
             <span className="icon" onClick={onHandleToggleClick}>
               {onShowPAssword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
