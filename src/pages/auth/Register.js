@@ -1,13 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import registerImg from "../../assets/register.svg";
 import "./AuthContainer.scss";
 import { GoPrimitiveDot } from "react-icons/go";
+import { faCheck } from "react-icons/fa";
 
 const Register = ({ onLogin }) => {
   const [showPAssword, setShowPAssword] = useState(false);
   const [showIndicator, setShowIndicator] = useState(false);
   const [pass, setPass] = useState("");
+
+  const [passLetters, setPassLetters] = useState(false);
+  const [passNumbers, setPassNumbers] = useState(false);
+  const [passChar, setPassChar] = useState(false);
+  const [passLength, setPassLength] = useState(false);
+
+  useEffect(() => {
+    if (pass.match(match(/([a-z].*[A-Z])|([A-Z].*[a-z])/))) {
+      setPassLetters(true);
+    } else setPassLetters(false);
+  }, [pass]);
 
   const handleToggleClick = () => {
     setShowPAssword(!showPAssword);
@@ -56,14 +68,14 @@ const Register = ({ onLogin }) => {
             <ul className="--list-style-none --card --bg-grey --text-sm --p">
               <p className="--text-sm">Password strength indicator</p>
               <span className="--align-center">
-                <li>
-                  <GoPrimitiveDot />
+                <li className={passLetters ? "pass-green" : "pass-red"}>
+                  {passLetters ? <faCheck /> : <GoPrimitiveDot />}
                   &nbsp; Lowercase & Uppercase
                 </li>
               </span>
               <span className="--align-center">
                 <li>
-                  <GoPrimitiveDot />
+                  {passLetters ? <faCheck /> : <GoPrimitiveDot />}
                   &nbsp; Numbers (0-9)
                 </li>
               </span>
