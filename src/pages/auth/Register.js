@@ -25,6 +25,11 @@ const Register = ({ onLogin }) => {
     if (pass.match(/([0-9])/)) {
       setPassNumbers(true);
     } else setPassNumbers(false);
+
+    //Char Checker
+    if (pass.match(/([!,%,&,@,#,$,^,*,?,_,~])/)) {
+      setPassChar(true);
+    } else setPassChar(false);
   }, [pass]);
 
   const handleToggleClick = () => {
@@ -86,8 +91,8 @@ const Register = ({ onLogin }) => {
                 </li>
               </span>
               <span className="--align-center">
-                <li>
-                  <GoPrimitiveDot />
+                <li className={passChar ? "pass-green" : "pass-red"}>
+                  {passChar ? <FaCheck /> : <GoPrimitiveDot />}
                   &nbsp; Special Character ( !@#$%^&*)
                 </li>
               </span>
