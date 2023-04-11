@@ -1,0 +1,12 @@
+.header {
+  background-color: var(--color-orange);
+}
+
+.product-container {
+  min-height: 90vh;
+  background-color: var(--color-grey);
+}
+
+.color-green {
+  color: #1d6315;
+}
