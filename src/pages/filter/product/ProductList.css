@@ -10,3 +10,9 @@
 .color-green {
   color: #1d6315;
 }
+@media screen and (max-width: 600px) {
+  .product {
+    grid-template-columns: repeat(auto-fix, minmax(16rem, 1fr));
+    padding: 1rem;
+  }
+}
