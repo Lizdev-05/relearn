@@ -19,7 +19,7 @@ const ProductList = () => {
         </header>
       </div>
       <div className="product-container">
-        <div className="product container --grid-25 --py2 ">
+        <div className="products container --grid-25 --py2 ">
           <Product />
         </div>
       </div>

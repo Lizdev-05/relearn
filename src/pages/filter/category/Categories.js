@@ -3,7 +3,7 @@ import "./Categories.css";
 
 const Categories = () => {
   return (
-    <div>
+    <div className="--flex-center">
       <button type="button" className="btn --btn --btn-secondary">
         All
       </button>
