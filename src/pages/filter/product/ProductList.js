@@ -7,6 +7,11 @@ import { products as items } from "../../../products-data";
 
 const ProductList = () => {
   const [products, setProducts] = useState(items);
+  const [search, setSearch] = useState("");
+
+  const handleSearch = () => {
+    setSearch(e.target.value);
+  };
   return (
     <div>
       <div className="header">
@@ -15,7 +20,7 @@ const ProductList = () => {
             <span className="color-green ">Product</span> Filter
           </h2>
           <div className="--flex-between ---flex-dir-column--py">
-            <Search />
+            <Search inputValue={search} onInputChange={handleSearch} />
             <Categories />
           </div>
         </header>

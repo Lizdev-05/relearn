@@ -1,9 +1,14 @@
 import React from "react";
 
-const Search = () => {
+const Search = ({ inputValue, onInputChange }) => {
   return (
     <div className="--form-control">
-      <input type="text" placeholder="Search products" />
+      <input
+        type="text"
+        placeholder="Search products"
+        value={inputValue}
+        onChange={onInputChange}
+      />
     </div>
   );
 };
