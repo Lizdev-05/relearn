@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Categories from "../category/Categories";
 import Product from "../product/Product";
 import Search from "../search/Search";
@@ -8,10 +8,20 @@ import { products as items } from "../../../products-data";
 const ProductList = () => {
   const [products, setProducts] = useState(items);
   const [search, setSearch] = useState("");
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
-  const handleSearch = () => {
+  const handleSearch = (e) => {
     setSearch(e.target.value);
   };
+
+  useEffect(() => {
+    setFilteredProducts(
+      products.filter((product) =>
+        product.title.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+      )
+    );
+  }, [search]);
+
   return (
     <div>
       <div className="header">
@@ -27,7 +37,7 @@ const ProductList = () => {
       </div>
       <div className="product-container">
         <div className="products container --grid-25 --py2 ">
-          {products.map((product) => {
+          {filteredProducts.map((product) => {
             const { id, title, price, category, img } = product;
             return (
               <div key={id}>
