@@ -5,18 +5,32 @@ import Search from "../search/Search";
 import "./ProductList.css";
 import { products as items } from "../../../products-data";
 
+const allCategories = [
+  "all",
+  ...new Set(items.map((product) => product.category)),
+];
 const ProductList = () => {
-  const [products, setProducts] = useState(items);
+  // const [products, setProducts] = useState(items);
   const [search, setSearch] = useState("");
-  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState(items);
+  const [categories, setCategories] = useState(allCategories);
 
   const handleSearch = (e) => {
     setSearch(e.target.value);
   };
 
+  const filterProducts = (category) => {
+    if (category === "all") {
+      setFilteredProducts(items);
+      return;
+    }
+    const newItems = items.filter((item) => item.category === category);
+    setFilteredProducts(newItems);
+  };
   useEffect(() => {
+    console.log(search);
     setFilteredProducts(
-      products.filter((product) =>
+      items.filter((product) =>
         product.title.toLocaleLowerCase().includes(search.toLocaleLowerCase())
       )
     );
@@ -31,7 +45,7 @@ const ProductList = () => {
           </h2>
           <div className="--flex-between ---flex-dir-column--py">
             <Search inputValue={search} onInputChange={handleSearch} />
-            <Categories />
+            <Categories categories={categories} filterItems={filterProducts} />
           </div>
         </header>
       </div>
@@ -41,7 +55,7 @@ const ProductList = () => {
             <h2 className="--center-all --color-danger">No Product Found!!!</h2>
           ) : (
             filteredProducts.map((product) => {
-              const { id, title, price, category, img } = product;
+              const { id, title, price, img } = product;
               return (
                 <div key={id}>
                   <Product title={title} price={price} img={img} />

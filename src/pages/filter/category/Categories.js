@@ -1,12 +1,21 @@
 import React from "react";
 import "./Categories.css";
 
-const Categories = () => {
+const Categories = ({ categories, filterItems }) => {
   return (
     <div className="--flex-center">
-      <button type="button" className="btn --btn --btn-secondary">
-        All
-      </button>
+      {categories.map((category, index) => {
+        return (
+          <button
+            type="button"
+            className="btn --btn --btn-secondary"
+            key={index}
+            onClick={() => filterItems(category)}
+          >
+            {category}
+          </button>
+        );
+      })}
     </div>
   );
 };
