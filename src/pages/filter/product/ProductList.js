@@ -10,7 +10,6 @@ const allCategories = [
   ...new Set(items.map((product) => product.category)),
 ];
 const ProductList = () => {
-  // const [products, setProducts] = useState(items);
   const [search, setSearch] = useState("");
   const [filteredProducts, setFilteredProducts] = useState(items);
   const [categories, setCategories] = useState(allCategories);
