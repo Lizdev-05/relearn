@@ -34,3 +34,9 @@
   justify-content: center;
   align-items: stretch;
 }
+
+@media screen and (max-width: 600px) {
+  .sub-plans {
+    flex-direction: column;
+  }
+}
