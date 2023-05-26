@@ -10,6 +10,7 @@ import UnControlledForm from "./pages/form/UnControlledForm";
 import Users from "./pages/gitHubUser/Users";
 import Joke from "./pages/jokes/Joke";
 import UserProfile from "./pages/userProfile/UserProfile";
+import SubList from "./pages/subscription/SubList";
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
       {/* <UseState /> */}
       {/* <ProfileList /> */}
       {/* <Counter /> */}
-      <ProductList />
+      {/* <ProductList /> */}
+      <SubList />
     </div>
   );
 }
