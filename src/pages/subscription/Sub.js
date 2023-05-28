@@ -16,6 +16,10 @@ const Sub = ({ plan, theme, price, isBasic, isPro, isMaster }) => {
           {isBasic && <li>Unlimited Pages</li>}
           {isBasic && <li>Unlimited Bandwidth</li>}
           {isBasic && <li>500GB Storage</li>}
+
+          {isPro && <li>10 Backups</li>}
+          {isPro && <li>Email Support</li>}
+          {isPro && <li>GitHub Tool</li>}
         </ul>
       </div>
 
