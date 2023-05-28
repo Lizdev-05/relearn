@@ -10,6 +10,8 @@ const Sub = ({ plan, theme, price, isBasic, isPro, isMaster }) => {
           <span>$</span>
           <span>{price}</span>
         </h4>
+        {isPro && <p className="--text-light">Everything in basic, plus</p>}
+        {isMaster && <p className="--text-light">Everything in pro, plus</p>}
       </div>
       <div className="feaures">
         <ul>
