@@ -11,6 +11,7 @@ import Users from "./pages/gitHubUser/Users";
 import Joke from "./pages/jokes/Joke";
 import UserProfile from "./pages/userProfile/UserProfile";
 import SubList from "./pages/subscription/SubList";
+import UseReducerBasics from "./pages/useReducer/UseReducerBasics";
 
 function App() {
   return (
@@ -26,7 +27,8 @@ function App() {
       {/* <ProfileList /> */}
       {/* <Counter /> */}
       {/* <ProductList /> */}
-      <SubList />
+      {/* <SubList /> */}
+      <UseReducerBasics />
     </div>
   );
 }
