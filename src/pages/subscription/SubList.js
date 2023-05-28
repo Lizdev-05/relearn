@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Sub from "./Sub";
 import "./SubList.css";
 
@@ -12,6 +12,21 @@ const SubList = () => {
   const handleClick = () => {
     setyearly(!yearly);
   };
+
+  const calcPercentage = (num, per) => {
+    return ((num * 12) / 100) * per;
+  };
+  useEffect(() => {
+    if (yearly) {
+      setBasic(calcPercentage(basic, 70).toFixed(0));
+      setPro(calcPercentage(pro, 70).toFixed(0));
+      setMaster(calcPercentage(master, 70).toFixed(0));
+    } else {
+      setBasic(9.99);
+      setPro(19.99);
+      setMaster(29.99);
+    }
+  }, [yearly]);
   return (
     <section className="main">
       <div className="container --center-all">
@@ -24,8 +39,11 @@ const SubList = () => {
           <div className="plan --flex-center">
             <p>Monthly</p>
 
-            <div className="toggle-btn --m2" onClick={handleClick}>
-              <div className="ball"></div>
+            <div
+              className={yearly ? "toggle-btn --m2 toggled" : "toggle-btn --m2"}
+              onClick={handleClick}
+            >
+              <div className={yearly ? "ball moved" : "ball"}></div>
             </div>
 
             <p>Yearly</p>
