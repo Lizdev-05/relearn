@@ -402,6 +402,9 @@ p {
   );
 }
 
+li {
+  list-style: none;
+}
 .--list-style-none {
   list-style: none;
 }
