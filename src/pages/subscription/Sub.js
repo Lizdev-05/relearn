@@ -4,7 +4,7 @@ import "./Sub.css";
 const Sub = () => {
   return (
     <div className="price-box --card">
-      <div className="theme1">
+      <div className="theme1 --p2">
         <p className="--text-light">Basic</p>
         <h4 className="--text-light">
           <span>$</span>
