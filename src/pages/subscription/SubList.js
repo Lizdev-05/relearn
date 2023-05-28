@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import Sub from "./Sub";
 import "./SubList.css";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const SubList = () => {
   const [basic, setBasic] = useState(9.99);
   const [pro, setPro] = useState(19.99);
@@ -30,6 +33,7 @@ const SubList = () => {
   return (
     <section className="main">
       <div className="container --center-all">
+        <ToastContainer />
         <div>
           <div className="title">
             <h2>Pricing</h2>
@@ -58,6 +62,7 @@ const SubList = () => {
             price={basic}
             isBasic={true}
             isYearly={yearly}
+            onBuy={() => toast.success(`${"You are about to pay"} ${basic}`)}
           />
           <Sub
             plan={"Pro"}
@@ -65,6 +70,7 @@ const SubList = () => {
             price={pro}
             isPro={true}
             isYearly={yearly}
+            onBuy={() => toast.success(`${"You are about to pay"} ${pro}`)}
           />
           <Sub
             plan={"Master"}
@@ -72,6 +78,7 @@ const SubList = () => {
             price={master}
             isMaster={true}
             isYearly={yearly}
+            onBuy={() => toast.success(`${"You are about to pay"} ${master}`)}
           />
         </div>
       </div>

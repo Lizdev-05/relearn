@@ -1,7 +1,16 @@
 import React from "react";
 import "./Sub.css";
 
-const Sub = ({ plan, theme, price, isBasic, isPro, isMaster, isYearly }) => {
+const Sub = ({
+  plan,
+  theme,
+  price,
+  isBasic,
+  isPro,
+  isMaster,
+  isYearly,
+  onBuy,
+}) => {
   return (
     <div className="price-box --card">
       <div className={`${theme} --p2`}>
@@ -35,7 +44,9 @@ const Sub = ({ plan, theme, price, isBasic, isPro, isMaster, isYearly }) => {
         </ul>
       </div>
 
-      <button className={`${theme} btn`}>Buy Now!</button>
+      <button className={`${theme} btn`} onClick={onBuy}>
+        Buy Now
+      </button>
     </div>
   );
 };
