@@ -30,7 +30,12 @@ const SubList = () => {
           {" "}
           <Sub plan={"Basic"} theme={"theme1"} price={basic} isBasic={true} />
           <Sub plan={"Pro"} theme={"theme2"} price={pro} isPro={true} />
-          <Sub plan={"Master"} theme={"theme3"} price={master} />
+          <Sub
+            plan={"Master"}
+            theme={"theme3"}
+            price={master}
+            isMaster={true}
+          />
         </div>
       </div>
     </section>

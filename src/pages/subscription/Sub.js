@@ -20,6 +20,10 @@ const Sub = ({ plan, theme, price, isBasic, isPro, isMaster }) => {
           {isPro && <li>10 Backups</li>}
           {isPro && <li>Email Support</li>}
           {isPro && <li>GitHub Tool</li>}
+
+          {isMaster && <li>20 Backups</li>}
+          {isMaster && <li>Push Notification</li>}
+          {isMaster && <li>Priority Support</li>}
         </ul>
       </div>
 
