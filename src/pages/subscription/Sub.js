@@ -1,14 +1,14 @@
 import React from "react";
 import "./Sub.css";
 
-const Sub = ({ plan, theme }) => {
+const Sub = ({ plan, theme, price }) => {
   return (
     <div className="price-box --card">
       <div className={`${theme} --p2`}>
         <p className="--text-light">{plan}</p>
         <h4 className="--text-light">
           <span>$</span>
-          <span>9.99</span>
+          <span>{price}</span>
         </h4>
       </div>
       <div className="feaures">
