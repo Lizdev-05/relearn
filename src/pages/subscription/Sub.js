@@ -1,7 +1,7 @@
 import React from "react";
 import "./Sub.css";
 
-const Sub = ({ plan, theme, price }) => {
+const Sub = ({ plan, theme, price, isBasic, isPro, isMaster }) => {
   return (
     <div className="price-box --card">
       <div className={`${theme} --p2`}>
@@ -13,9 +13,9 @@ const Sub = ({ plan, theme, price }) => {
       </div>
       <div className="feaures">
         <ul>
-          <li>Unlimited Pages</li>
-          <li>Unlimited Bandwidth</li>
-          <li>500GB Storage</li>
+          {isBasic && <li>Unlimited Pages</li>}
+          {isBasic && <li>Unlimited Bandwidth</li>}
+          {isBasic && <li>500GB Storage</li>}
         </ul>
       </div>
 
