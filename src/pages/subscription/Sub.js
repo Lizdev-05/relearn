@@ -1,11 +1,12 @@
 import React from "react";
+import "./Sub.css";
 
 const Sub = () => {
   return (
-    <div className="price-box">
-      <div className="box">
-        <p>Basic</p>
-        <h4>
+    <div className="price-box --card">
+      <div className="theme1">
+        <p className="--text-light">Basic</p>
+        <h4 className="--text-light">
           <span>$</span>
           <span>9.99</span>
         </h4>
