@@ -25,7 +25,9 @@ const SubList = () => {
 
         <div className="sub-plans --my">
           {" "}
-          <Sub />
+          <Sub plan={"Basic"} theme={"theme1"} />
+          <Sub plan={"Pro"} theme={"theme2"} />
+          <Sub plan={"Master"} theme={"theme3"} />
         </div>
       </div>
     </section>
