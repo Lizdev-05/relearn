@@ -1,21 +1,10 @@
 import React, { useReducer, useState } from "react";
-
-const counterReducer = (state, action) => {
-  switch (action.type) {
-    case "SUBTRACT":
-      return { count: state.count - 1 };
-
-    case "ADD":
-      return { count: state.count + 1 };
-
-    case "RESET":
-      return { count: 0 };
-  }
-};
+import { counterReducer } from "./countReducer";
 
 const initialState = {
   count: 0,
 };
+
 const Counter = () => {
   const [state, dispatch] = useReducer(counterReducer, initialState);
 
