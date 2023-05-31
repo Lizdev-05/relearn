@@ -12,6 +12,7 @@ import Joke from "./pages/jokes/Joke";
 import UserProfile from "./pages/userProfile/UserProfile";
 import SubList from "./pages/subscription/SubList";
 import UseReducerBasics from "./pages/useReducer/UseReducerBasics";
+import TaskManager from "./pages/stateTaskManager/TaskManager";
 
 function App() {
   return (
@@ -28,7 +29,8 @@ function App() {
       {/* <Counter /> */}
       {/* <ProductList /> */}
       {/* <SubList /> */}
-      <UseReducerBasics />
+      {/* <UseReducerBasics /> */}
+      <TaskManager />
     </div>
   );
 }
