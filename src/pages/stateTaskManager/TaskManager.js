@@ -1,6 +1,18 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import "./TaskManager.css";
+import Task from "./Task";
 
 const TaskManager = () => {
+  const [name, setName] = useState("");
+  const [date, setDate] = useState("");
+  const [task, setTask] = useState([]);
+
+  const nameInputRef = useRef(null);
+
+  useEffect(() => {
+    nameInputRef.current.focus();
+  }, []);
+
   return (
     <div className="--bg-primary">
       <h1>Task Manager</h1>
@@ -9,16 +21,35 @@ const TaskManager = () => {
           <form action="" className="form --form-control">
             <div>
               <label htmlFor="name">Task:</label>
-              <input type="text" placeholder="Task name" />
+              <input
+                type="text"
+                placeholder="Task name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                ref={nameInputRef}
+              />
             </div>
             <div>
               <label htmlFor="name">Date:</label>
-              <input type="date" placeholder="Task date" />
+              <input
+                type="date"
+                placeholder="Task date"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+              />
             </div>
             <button className="--btn --btn-success --btn-block">
               Save Task
             </button>
           </form>
+        </div>
+      </div>
+
+      <div className="--flex-center --my2">
+        <div className="--width-500px --p">
+          <h2 className="--text-light">Task List</h2>
+          <hr style={{ background: "#fff" }} />
+          <Task />
         </div>
       </div>
     </div>
