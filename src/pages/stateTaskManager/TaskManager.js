@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./TaskManager.css";
 import Task from "./Task";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const TaskManager = () => {
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
-  const [task, setTask] = useState([]);
+  const [tasks, setTasks] = useState([]);
 
   const nameInputRef = useRef(null);
 
@@ -13,12 +15,33 @@ const TaskManager = () => {
     nameInputRef.current.focus();
   }, []);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if ((!name && !date) || !name || !date) {
+      toast.error("Kindly enter task name and date");
+    } else {
+      const newTask = {
+        id: Date.now(),
+        name,
+        date,
+        completed: false,
+      };
+      setTasks(...tasks, newTask);
+      (setName = ""), (setDate = "");
+    }
+  };
+
   return (
     <div className="--bg-primary">
       <h1>Task Manager</h1>
       <div className="--flex-center --p">
         <div className="--card --bg-light --width-500px --p --flex-center">
-          <form action="" className="form --form-control">
+          <ToastContainer />
+          <form
+            action=""
+            className="form --form-control"
+            onSubmit={handleSubmit}
+          >
             <div>
               <label htmlFor="name">Task:</label>
               <input
@@ -49,7 +72,15 @@ const TaskManager = () => {
         <div className="--width-500px --p">
           <h2 className="--text-light">Task List</h2>
           <hr style={{ background: "#fff" }} />
-          <Task />
+          {tasks.length === 0 ? (
+            <p>No task availabe</p>
+          ) : (
+            <div>
+              {tasks.map((task) => {
+                return <Task {...task} />;
+              })}
+            </div>
+          )}
         </div>
       </div>
     </div>
