@@ -26,8 +26,9 @@ const TaskManager = () => {
         date,
         completed: false,
       };
-      setTasks(...tasks, newTask);
-      (setName = ""), (setDate = "");
+      setTasks([...tasks, newTask]);
+      setName(" ");
+      setDate(" ");
     }
   };
 
@@ -73,7 +74,7 @@ const TaskManager = () => {
           <h2 className="--text-light">Task List</h2>
           <hr style={{ background: "#fff" }} />
           {tasks.length === 0 ? (
-            <p>No task availabe</p>
+            <p className="--text-light">No availabe task </p>
           ) : (
             <div>
               {tasks.map((task) => {
