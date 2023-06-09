@@ -9,6 +9,9 @@ const TaskManager = () => {
   const [date, setDate] = useState("");
   const [tasks, setTasks] = useState([]);
 
+  const [taskId, setaskId] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
+
   const nameInputRef = useRef(null);
 
   useEffect(() => {
@@ -30,6 +33,14 @@ const TaskManager = () => {
       setName(" ");
       setDate(" ");
     }
+  };
+
+  const editTaskFn = (id) => {
+    const thisTask = tasks.find((task) => task.id === id);
+    setaskId(id);
+    setIsEditing(true);
+    setName(thisTask.name);
+    setDate(thisTask.date);
   };
 
   return (
@@ -78,7 +89,7 @@ const TaskManager = () => {
           ) : (
             <div>
               {tasks.map((task) => {
-                return <Task {...task} />;
+                return <Task {...task} editTask={editTaskFn} />;
               })}
             </div>
           )}

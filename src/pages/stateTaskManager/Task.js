@@ -1,7 +1,7 @@
 import React from "react";
 import { FaCheckDouble, FaEdit, FaTrashAlt } from "react-icons/fa";
 
-const Task = ({ id, name, date, completed }) => {
+const Task = ({ id, name, date, completed, editTask }) => {
   return (
     <div key={id} className={completed ? "task complete" : "task"}>
       <span>
@@ -14,7 +14,7 @@ const Task = ({ id, name, date, completed }) => {
       </span>
 
       <span>
-        <button>
+        <button onClick={() => editTask(id)}>
           <FaEdit color="green" />
         </button>
         <button>
