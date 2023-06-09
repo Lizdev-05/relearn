@@ -9,7 +9,7 @@ const TaskManager = () => {
   const [date, setDate] = useState("");
   const [tasks, setTasks] = useState([]);
 
-  const [taskId, setaskId] = useState(null);
+  const [taskId, setTaskId] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
 
   const nameInputRef = useRef(null);
@@ -26,7 +26,12 @@ const TaskManager = () => {
       setTasks(
         tasks.map((task) => {
           if (task.id === taskId) {
-            return { ...task, name, date, completed: false };
+            return {
+              ...task,
+              name,
+              date,
+              completed: false,
+            };
           }
           return task;
         })
@@ -34,7 +39,7 @@ const TaskManager = () => {
       setName(" ");
       setDate(" ");
       setIsEditing(false);
-      setaskId(null);
+      setTaskId(null);
     } else {
       const newTask = {
         id: Date.now(),
@@ -50,7 +55,7 @@ const TaskManager = () => {
 
   const editTaskFn = (id) => {
     const thisTask = tasks.find((task) => task.id === id);
-    setaskId(id);
+    setTaskId(id);
     setIsEditing(true);
     setName(thisTask.name);
     setDate(thisTask.date);
@@ -87,7 +92,7 @@ const TaskManager = () => {
               />
             </div>
             <button className="--btn --btn-success --btn-block">
-              Save Task
+              {isEditing ? "Edit Task" : "Save Task"}
             </button>
           </form>
         </div>
