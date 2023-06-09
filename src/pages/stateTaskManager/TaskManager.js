@@ -22,6 +22,19 @@ const TaskManager = () => {
     e.preventDefault();
     if ((!name && !date) || !name || !date) {
       toast.error("Kindly enter task name and date");
+    } else if (name && date && isEditing) {
+      setTasks(
+        tasks.map((task) => {
+          if (task.id === taskId) {
+            return { ...task, name, date, completed: false };
+          }
+          return task;
+        })
+      );
+      setName(" ");
+      setDate(" ");
+      setIsEditing(false);
+      setaskId(null);
     } else {
       const newTask = {
         id: Date.now(),
