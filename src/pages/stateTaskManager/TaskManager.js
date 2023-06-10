@@ -3,6 +3,7 @@ import "./TaskManager.css";
 import Task from "./Task";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+git add
 
 const TaskManager = () => {
   const [name, setName] = useState("");
