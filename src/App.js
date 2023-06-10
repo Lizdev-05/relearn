@@ -13,6 +13,8 @@ import UserProfile from "./pages/userProfile/UserProfile";
 import SubList from "./pages/subscription/SubList";
 import UseReducerBasics from "./pages/useReducer/UseReducerBasics";
 import TaskManager from "./pages/stateTaskManager/TaskManager";
+import PractiseTaskList from "./pages/stateTaskManager/practise/PractiseTaskList";
+import TaskManagerReducer from "./pages/stateTaskManager/reducerTaskManager/TaskManagerReducer";
 
 function App() {
   return (
@@ -30,7 +32,9 @@ function App() {
       {/* <ProductList /> */}
       {/* <SubList /> */}
       {/* <UseReducerBasics /> */}
-      <TaskManager />
+      {/* <TaskManager /> */}
+      {/* <PractiseTaskList /> */}
+      <TaskManagerReducer />
     </div>
   );
 }
