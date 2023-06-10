@@ -68,6 +68,16 @@ const TaskManager = () => {
     }
   };
 
+  const completeTaskFn = (id) => {
+    setTasks(
+      tasks.map((task) => {
+        if (task.id === id) {
+          return { ...task, completed: true };
+        }
+        return task;
+      })
+    );
+  };
   return (
     <div className="--bg-primary">
       <h1>Task Manager</h1>
@@ -119,6 +129,7 @@ const TaskManager = () => {
                     {...task}
                     editTask={editTaskFn}
                     deleteTask={deleteTaskFn}
+                    completeTask={completeTaskFn}
                   />
                 );
               })}
