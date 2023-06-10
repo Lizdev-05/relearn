@@ -3,12 +3,13 @@ import "./TaskManager.css";
 import Task from "./Task";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-git add
+import useLocalStorage from "use-local-storage";
 
 const TaskManager = () => {
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
-  const [tasks, setTasks] = useState([]);
+
+  const [tasks, setTasks] = useLocalStorage("tasks", []);
 
   const [taskId, setTaskId] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
