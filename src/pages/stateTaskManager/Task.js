@@ -1,7 +1,15 @@
 import React from "react";
 import { FaCheckDouble, FaEdit, FaTrashAlt } from "react-icons/fa";
 
-const Task = ({ id, name, date, completed, editTask, deleteTask }) => {
+const Task = ({
+  id,
+  name,
+  date,
+  completed,
+  editTask,
+  deleteTask,
+  completeTask,
+}) => {
   return (
     <div key={id} className={completed ? "task complete" : "task"}>
       <span>
@@ -21,7 +29,7 @@ const Task = ({ id, name, date, completed, editTask, deleteTask }) => {
           {" "}
           <FaTrashAlt color="red" />
         </button>
-        <button>
+        <button onClick={() => completeTask(id)}>
           {" "}
           <FaCheckDouble color="purple" />
         </button>
