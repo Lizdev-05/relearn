@@ -23,6 +23,12 @@ const TaskManagerReducer = () => {
         alertClass: "danger",
       };
     }
+
+    if (action.type === "CLOSE_ALERT") {
+      return { ...state, isAlertOpen: false };
+    }
+
+    return state;
   };
 
   const initialState = {
@@ -50,7 +56,11 @@ const TaskManagerReducer = () => {
     }
   };
 
-  const handleOnCloseAlert = () => {};
+  const handleOnCloseAlert = () => {
+    dispatch({
+      type: "CLOSE_ALERT",
+    });
+  };
 
   const editTaskFn = (id) => {};
 
