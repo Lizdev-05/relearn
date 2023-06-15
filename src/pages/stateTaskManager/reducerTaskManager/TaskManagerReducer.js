@@ -49,6 +49,13 @@ const taskReducer = (state, action) => {
       isEditing: true,
     };
   }
+
+  if (action.type === "CLOSE_MODAL") {
+    return {
+      ...state,
+      isEditModalOpen: false,
+    };
+  }
   return state;
 };
 
@@ -133,7 +140,11 @@ const TaskManagerReducer = () => {
   const deleteTaskFn = (id) => {};
 
   const completeTaskFn = (id) => {};
-  const closeModalfn = () => {};
+  const closeModalfn = () => {
+    dispatch({
+      type: "CLOSE_MODAL",
+    });
+  };
   return (
     <div className="--bg-primary">
       {state.isAlertOpen && (
