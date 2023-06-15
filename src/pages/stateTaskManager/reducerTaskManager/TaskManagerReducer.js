@@ -19,7 +19,7 @@ const TaskManagerReducer = () => {
     tasks,
     taskId: null,
     isEditing: false,
-    isAlertOpen: false,
+    isAlertOpen: true,
     alertContent: "This is an alert",
     alertClass: "success",
   };
@@ -35,6 +35,8 @@ const TaskManagerReducer = () => {
     e.preventDefault();
   };
 
+  const handleOnCloseAlert = () => {};
+
   const editTaskFn = (id) => {};
 
   const deleteTaskFn = (id) => {};
@@ -42,7 +44,13 @@ const TaskManagerReducer = () => {
   const completeTaskFn = (id) => {};
   return (
     <div className="--bg-primary">
-      {state.isAlertOpen && <Alert />}
+      {state.isAlertOpen && (
+        <Alert
+          alertContent={state.alertContent}
+          alertClass={state.alertClass}
+          onCloseAlert={handleOnCloseAlert}
+        />
+      )}
 
       {/* <Confirm /> */}
       <h1>Task Manager</h1>
