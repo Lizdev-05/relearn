@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useReducer, useRef, useState } from "react";
 import "../TaskManager.css";
 import Task from "../Task";
 import { ToastContainer, toast } from "react-toastify";
@@ -13,79 +13,38 @@ const TaskManagerReducer = () => {
 
   const [tasks, setTasks] = useLocalStorage("tasks", []);
 
-  const [taskId, setTaskId] = useState(null);
-  const [isEditing, setIsEditing] = useState(false);
+  const taskReducer = (state, action) => {};
+
+  const initialState = {
+    tasks,
+    taskId: null,
+    isEditing: false,
+    isAlertOpen: false,
+    alertContent: "This is an alert",
+    alertClass: "success",
+  };
+
+  const [state, dispatch] = useReducer(taskReducer, initialState);
 
   const nameInputRef = useRef(null);
-
   useEffect(() => {
     nameInputRef.current.focus();
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if ((!name && !date) || !name || !date) {
-      toast.error("Kindly enter task name and date");
-    } else if (name && date && isEditing) {
-      setTasks(
-        tasks.map((task) => {
-          if (task.id === taskId) {
-            return {
-              ...task,
-              name,
-              date,
-              completed: false,
-            };
-          }
-          return task;
-        })
-      );
-      setName(" ");
-      setDate(" ");
-      setIsEditing(false);
-      setTaskId(null);
-    } else {
-      const newTask = {
-        id: Date.now(),
-        name,
-        date,
-        completed: false,
-      };
-      setTasks([...tasks, newTask]);
-      setName(" ");
-      setDate(" ");
-    }
   };
 
-  const editTaskFn = (id) => {
-    const thisTask = tasks.find((task) => task.id === id);
-    setTaskId(id);
-    setIsEditing(true);
-    setName(thisTask.name);
-    setDate(thisTask.date);
-  };
+  const editTaskFn = (id) => {};
 
-  const deleteTaskFn = (id) => {
-    if (window.confirm("Delete this task") === true) {
-      const newTask = tasks.filter((task) => task.id !== id);
-      setTasks(newTask);
-    }
-  };
+  const deleteTaskFn = (id) => {};
 
-  const completeTaskFn = (id) => {
-    setTasks(
-      tasks.map((task) => {
-        if (task.id === id) {
-          return { ...task, completed: true };
-        }
-        return task;
-      })
-    );
-  };
+  const completeTaskFn = (id) => {};
   return (
     <div className="--bg-primary">
-      {/* <Alert /> */}
-      <Confirm />
+      {state.isAlertOpen && <Alert />}
+
+      {/* <Confirm /> */}
       <h1>Task Manager</h1>
       <div className="--flex-center --p">
         <div className="--card --bg-light --width-500px --p --flex-center">
@@ -115,7 +74,7 @@ const TaskManagerReducer = () => {
               />
             </div>
             <button className="--btn --btn-success --btn-block">
-              {isEditing ? "Edit Task" : "Save Task"}
+              {state.isEditing ? "Edit Task" : "Save Task"}
             </button>
           </form>
         </div>

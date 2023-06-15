@@ -5,11 +5,11 @@ const Confirm = () => {
   return (
     <div className="confirm">
       <div className="confirm-modal">
-        <div className="header-modal">
+        <div className="confirm-header">
           <span className="title">Delete Task</span>
           <button className="close-header">&times;</button>
         </div>
-        <div className="content">
+        <div className="confirm-content">
           <p>You are about to delete this task</p>
         </div>
         <div className="buttons">
