@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import useLocalStorage from "use-local-storage";
 import Alert from "./alert/Alert";
 import Confirm from "./confirm/Confirm";
+import { type } from "@testing-library/user-event/dist/type";
 
 const TaskManagerReducer = () => {
   const [name, setName] = useState("");
@@ -13,13 +14,22 @@ const TaskManagerReducer = () => {
 
   const [tasks, setTasks] = useLocalStorage("tasks", []);
 
-  const taskReducer = (state, action) => {};
+  const taskReducer = (state, action) => {
+    if (action.type === "EMPTY_FIELDS") {
+      return {
+        ...initialState,
+        isAlertOpen: true,
+        alertContent: "Kindly enter a name and a date",
+        alertClass: "danger",
+      };
+    }
+  };
 
   const initialState = {
     tasks,
     taskId: null,
     isEditing: false,
-    isAlertOpen: true,
+    isAlertOpen: false,
     alertContent: "This is an alert",
     alertClass: "success",
   };
@@ -33,6 +43,11 @@ const TaskManagerReducer = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!name || !date) {
+      dispatch({
+        type: "EMPTY_FIELDS",
+      });
+    }
   };
 
   const handleOnCloseAlert = () => {};
