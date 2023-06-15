@@ -31,6 +31,18 @@ const taskReducer = (state, action) => {
       alertClass: "success",
     };
   }
+
+  if (action.type === "EDIT_TASK_MODAL") {
+    console.log(action.payload);
+    return {
+      ...state,
+      taskId: action.payload,
+      isEditModalOpen: true,
+      modalTitle: "Edit Task",
+      modalMsg: "You are about to edit this taks",
+      modalActionText: "Edit",
+    };
+  }
   return state;
 };
 
@@ -49,7 +61,7 @@ const TaskManagerReducer = () => {
     isAlertOpen: false,
     alertContent: "This is an alert",
     alertClass: "success",
-    isEditModalOpen: true,
+    isEditModalOpen: false,
     isDeleteModalOpen: false,
     modalTitle: "Delete Task",
     modalMsg: "You are about to delete this taks",
@@ -91,6 +103,12 @@ const TaskManagerReducer = () => {
   const handleOnCloseAlert = () => {
     dispatch({
       type: "CLOSE_ALERT",
+    });
+  };
+  const editTaskModalFn = (id) => {
+    dispatch({
+      type: "EDIT_TASK_MODAL",
+      payload: id,
     });
   };
 
@@ -166,7 +184,7 @@ const TaskManagerReducer = () => {
                 return (
                   <Task
                     {...task}
-                    editTask={editTaskFn}
+                    editTask={editTaskModalFn}
                     deleteTask={deleteTaskFn}
                     completeTask={completeTaskFn}
                   />
