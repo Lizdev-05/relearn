@@ -6,33 +6,44 @@ import "react-toastify/dist/ReactToastify.css";
 import useLocalStorage from "use-local-storage";
 import Alert from "./alert/Alert";
 import Confirm from "./confirm/Confirm";
-import { type } from "@testing-library/user-event/dist/type";
+
+const taskReducer = (state, action) => {
+  if (action.type === "EMPTY_FIELDS") {
+    return {
+      ...state,
+      isAlertOpen: true,
+      alertContent: "Kindly enter a name and a date",
+      alertClass: "danger",
+    };
+  }
+
+  if (action.type === "CLOSE_ALERT") {
+    return { ...state, isAlertOpen: false };
+  }
+
+  if (action.type === "ADD_TASK") {
+    const allTasks = [...state.tasks, action.payload];
+    return {
+      ...state,
+      tasks: allTasks,
+      isAlertOpen: true,
+      alertContent: "Task added successfully",
+      alertClass: "success",
+    };
+  }
+  return state;
+};
 
 const TaskManagerReducer = () => {
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
 
   const [tasks, setTasks] = useLocalStorage("tasks", []);
-
-  const taskReducer = (state, action) => {
-    if (action.type === "EMPTY_FIELDS") {
-      return {
-        ...initialState,
-        isAlertOpen: true,
-        alertContent: "Kindly enter a name and a date",
-        alertClass: "danger",
-      };
-    }
-
-    if (action.type === "CLOSE_ALERT") {
-      return { ...state, isAlertOpen: false };
-    }
-
-    return state;
-  };
+  // const storedTasks = useLocalStorage("tasks", []);
 
   const initialState = {
-    tasks,
+    // tasks: storedTasks || [],
+    tasks: tasks,
     taskId: null,
     isEditing: false,
     isAlertOpen: false,
@@ -53,6 +64,22 @@ const TaskManagerReducer = () => {
       dispatch({
         type: "EMPTY_FIELDS",
       });
+    }
+
+    if (name && date) {
+      const newTask = {
+        id: Date.now(),
+        name,
+        date,
+        completed: false,
+      };
+      dispatch({
+        type: "ADD_TASK",
+        payload: newTask,
+      });
+      setName("");
+      setDate("");
+      setTasks([...tasks, newTask]);
     }
   };
 
@@ -117,11 +144,11 @@ const TaskManagerReducer = () => {
         <div className="--width-500px --p">
           <h2 className="--text-light">Task List</h2>
           <hr style={{ background: "#fff" }} />
-          {tasks.length === 0 ? (
+          {state.tasks.length === 0 ? (
             <p className="--text-light">No availabe task </p>
           ) : (
             <div>
-              {tasks.map((task) => {
+              {state.tasks.map((task) => {
                 return (
                   <Task
                     {...task}
