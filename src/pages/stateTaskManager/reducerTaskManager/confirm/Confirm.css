@@ -103,3 +103,9 @@
   background: #005490;
   color: #fff;
 }
+
+.btn-cancel:hover {
+  background-color: red;
+  color: white;
+  border: 2px solid transparent;
+}
