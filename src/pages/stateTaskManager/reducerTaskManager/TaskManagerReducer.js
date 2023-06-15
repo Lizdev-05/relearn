@@ -33,7 +33,6 @@ const taskReducer = (state, action) => {
   }
 
   if (action.type === "EDIT_TASK_MODAL") {
-    console.log(action.payload);
     return {
       ...state,
       taskId: action.payload,
@@ -41,6 +40,13 @@ const taskReducer = (state, action) => {
       modalTitle: "Edit Task",
       modalMsg: "You are about to edit this taks",
       modalActionText: "Edit",
+    };
+  }
+
+  if (action.type === "EDIT_TASK") {
+    return {
+      ...state,
+      isEditing: true,
     };
   }
   return state;
@@ -112,7 +118,17 @@ const TaskManagerReducer = () => {
     });
   };
 
-  const editTaskFn = (id) => {};
+  const editTaskFn = () => {
+    const id = state.taskId;
+    dispatch({
+      type: "EDIT_TASK",
+      payload: id,
+    });
+
+    const thisTask = state.tasks.find((task) => task.id !== id);
+    setName(thisTask.name);
+    setDate(thisTask.date);
+  };
 
   const deleteTaskFn = (id) => {};
 
