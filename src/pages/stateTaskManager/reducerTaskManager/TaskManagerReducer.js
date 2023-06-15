@@ -56,6 +56,28 @@ const taskReducer = (state, action) => {
       isEditModalOpen: false,
     };
   }
+
+  if (action.type === "UPDATED_TASK") {
+    console.log(action.payload);
+    const updateTask = action.payload;
+    const id = action.payload.id;
+
+    const taskIndex = state.tasks.findIndex((task) => {
+      return task.id === id;
+    });
+
+    if (taskIndex !== -1) {
+      state.tasks[taskIndex] = updateTask;
+
+      return {
+        ...state,
+        isEditing: false,
+        isAlertOpen: true,
+        alertContent: "Task updated successfully",
+        alertClass: "success",
+      };
+    }
+  }
   return state;
 };
 
@@ -96,6 +118,36 @@ const TaskManagerReducer = () => {
       });
     }
 
+    if (name && date && state.isEditing) {
+      const updatedTask = {
+        id: state.taskId,
+        name,
+        date,
+        completed: false,
+      };
+
+      dispatch({
+        type: "UPDATED_TASK",
+        payload: updatedTask,
+      });
+      setName("");
+      setDate("");
+      setTasks(
+        tasks.map((task) => {
+          if (task.id === updatedTask.id) {
+            return {
+              ...task,
+              name,
+              date,
+              completed: false,
+            };
+          }
+          return task;
+        })
+      );
+      return;
+    }
+
     if (name && date) {
       const newTask = {
         id: Date.now(),
@@ -132,9 +184,10 @@ const TaskManagerReducer = () => {
       payload: id,
     });
 
-    const thisTask = state.tasks.find((task) => task.id !== id);
+    const thisTask = state.tasks.find((task) => task.id === id);
     setName(thisTask.name);
     setDate(thisTask.date);
+    closeModalfn();
   };
 
   const deleteTaskFn = (id) => {};
