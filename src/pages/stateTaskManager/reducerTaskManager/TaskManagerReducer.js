@@ -92,6 +92,19 @@ const taskReducer = (state, action) => {
     };
   }
 
+  if (action.type === "DELETE_TASK") {
+    const id = action.payload;
+    const remainingTasks = state.tasks.filter((task) => task.id !== id);
+    return {
+      ...state,
+      tasks: remainingTasks,
+      isAlertOpen: true,
+      alertContent: "Task deleted successfully",
+      alertClass: "success",
+      isDeleteModalOpen: false,
+    };
+  }
+
   return state;
 };
 
@@ -211,7 +224,16 @@ const TaskManagerReducer = () => {
       payload: id,
     });
   };
-  const deleteTaskFn = (id) => {};
+  const deleteTaskFn = () => {
+    const id = state.taskId;
+    dispatch({
+      type: "DELETE_TASK",
+      payload: id,
+    });
+
+    const remainingTasks = tasks.filter((task) => task.id !== id);
+    setTasks(remainingTasks);
+  };
 
   const completeTaskFn = (id) => {};
   const closeModalfn = () => {
