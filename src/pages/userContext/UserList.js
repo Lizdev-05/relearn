@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import User from "./User";
+import UserContext from "../../context/userContext";
 
-const UserList = ({ users }) => {
+const UserList = () => {
+  const { users } = useContext(UserContext);
+
   return (
     <div>
       {users.map((user) => {
