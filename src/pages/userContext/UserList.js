@@ -6,7 +6,7 @@ const UserList = ({ users }) => {
     <div>
       {users.map((user) => {
         return (
-          <div className="--card --p --my2 --bg-primary">
+          <div className="--card --p --my2 --bg-light" key={user.id}>
             <User {...user} />
           </div>
         );

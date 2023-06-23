@@ -15,6 +15,7 @@ import UseReducerBasics from "./pages/useReducer/UseReducerBasics";
 import TaskManager from "./pages/stateTaskManager/TaskManager";
 import PractiseTaskList from "./pages/stateTaskManager/practise/PractiseTaskList";
 import TaskManagerReducer from "./pages/stateTaskManager/reducerTaskManager/TaskManagerReducer";
+import UserApp from "./pages/userContext/UserApp";
 
 function App() {
   return (
@@ -34,7 +35,8 @@ function App() {
       {/* <UseReducerBasics /> */}
       {/* <TaskManager /> */}
       {/* <PractiseTaskList /> */}
-      <TaskManagerReducer />
+      {/* <TaskManagerReducer /> */}
+      <UserApp />
     </div>
   );
 }
