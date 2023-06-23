@@ -5,8 +5,13 @@ import UserContext from "../../context/userContext";
 
 const UserApp = () => {
   const [users, setUsers] = useState(peopleData);
+
+  const deleteUser = (id) => {
+    const newUser = users.filter((user) => user.id !== id);
+    setUsers(newUser);
+  };
   return (
-    <UserContext.Provider value={{ users }}>
+    <UserContext.Provider value={{ users, deleteUser }}>
       <div>
         <UserList />
       </div>
