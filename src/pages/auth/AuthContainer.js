@@ -34,13 +34,30 @@ const AuthContainer = () => {
     // setRegister(false);
     setAuth({ login: false, register: false, reset: true });
   };
+
+  const [showPAssword, setShowPAssword] = useState(false);
+  const handleToggleClick = () => {
+    setShowPAssword(!showPAssword);
+  };
+
   return (
     <section className="--flex-center --100vh">
       <div className="container box">
         {auth.login && (
-          <Login onRegister={registerHandler} onReset={resetHandler} />
+          <Login
+            onRegister={registerHandler}
+            onReset={resetHandler}
+            onShowPAssword={showPAssword}
+            onHandleToggleClick={handleToggleClick}
+          />
         )}
-        {auth.register && <Register onLogin={loginHandler} />}
+        {auth.register && (
+          <Register
+            onLogin={loginHandler}
+            onShowPAssword={showPAssword}
+            onHandleToggleClick={handleToggleClick}
+          />
+        )}
         {auth.reset && <Reset onLogin={loginHandler} />}
       </div>
     </section>

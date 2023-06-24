@@ -1,0 +1,18 @@
+.header {
+  background-color: var(--color-orange);
+}
+
+.product-container {
+  min-height: 90vh;
+  background-color: var(--color-grey);
+}
+
+.color-green {
+  color: #1d6315;
+}
+@media screen and (max-width: 600px) {
+  .products {
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    padding: 1rem;
+  }
+}
