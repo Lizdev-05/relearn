@@ -16,6 +16,7 @@ import TaskManager from "./pages/stateTaskManager/TaskManager";
 import PractiseTaskList from "./pages/stateTaskManager/practise/PractiseTaskList";
 import TaskManagerReducer from "./pages/stateTaskManager/reducerTaskManager/TaskManagerReducer";
 import UserApp from "./pages/userContext/UserApp";
+import GitHubUsers from "./components/customHook/GitHubUsers";
 
 function App() {
   return (
@@ -36,7 +37,8 @@ function App() {
       {/* <TaskManager /> */}
       {/* <PractiseTaskList /> */}
       {/* <TaskManagerReducer /> */}
-      <UserApp />
+      {/* <UserApp /> */}
+      <GitHubUsers />
     </div>
   );
 }
