@@ -17,6 +17,7 @@ import PractiseTaskList from "./pages/stateTaskManager/practise/PractiseTaskList
 import TaskManagerReducer from "./pages/stateTaskManager/reducerTaskManager/TaskManagerReducer";
 import UserApp from "./pages/userContext/UserApp";
 import GitHubUsers from "./components/customHook/GitHubUsers";
+import RoutingApp from "./pages/route/RoutingApp";
 
 function App() {
   return (
@@ -38,7 +39,8 @@ function App() {
       {/* <PractiseTaskList /> */}
       {/* <TaskManagerReducer /> */}
       {/* <UserApp /> */}
-      <GitHubUsers />
+      {/* <GitHubUsers /> */}
+      <RoutingApp />
     </div>
   );
 }
