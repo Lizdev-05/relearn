@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { blogs } from "./Data";
 
 const BlogDetails = () => {
@@ -16,14 +16,18 @@ const BlogDetails = () => {
     setDetails(thisBlog.details);
   });
   return (
-    <div className="--center-all">
+    <div className="container --p">
       <h1 className="--text-center"> {title}</h1>
-      <hr />
-      <p>
+      <hr className="--bg-dark" />
+      <p className="--p">
         <b>Written by:</b> {author}
       </p>
       <br />
       <p>{details}</p>
+
+      <div>
+        <Link to="/blogs"> {`<<< Back to Blogs`}</Link>
+      </div>
     </div>
   );
 };
