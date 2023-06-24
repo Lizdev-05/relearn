@@ -6,6 +6,7 @@ import Navbar from "./navbar/Navbar";
 import NotFound from "./router/NotFound";
 import "./RoutingApp.css";
 import { useState } from "react";
+import BlogDetails from "./router/BlogDetails";
 
 function RoutingApp() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -17,6 +18,7 @@ function RoutingApp() {
           <Route path="/" element={<Home />} />
           <Route path="/about/*" element={<About />} />
           <Route path="/blogs" element={<Blog />} />
+          <Route path="/blog/:id" element={<BlogDetails />} />
 
           {/* ################   REDIRRECT   #####################         */}
           <Route
