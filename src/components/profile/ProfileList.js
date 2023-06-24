@@ -10,7 +10,7 @@ const ProfileList = () => {
   return (
     <section className={styles.center}>
       <div>
-        <h1>Team Members</h1>
+        <h1 className="--color-light">Team Members</h1>
         <div className={styles["profile-container"]}>
           {/* <Profile
         img={profile1}
