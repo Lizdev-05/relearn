@@ -13,6 +13,9 @@ const countReducer = (state = 0, action) => {
   return state;
 };
 
-const store = createStore(countReducer);
+const store = createStore(
+  countReducer,
+  +window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 export default store;
