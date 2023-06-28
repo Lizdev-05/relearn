@@ -6,35 +6,6 @@ const ReduxCounter = () => {
 
   const dispatch = useDispatch();
 
-  const addHandler = () => {
-    dispatch({
-      type: "ADD",
-    });
-  };
-
-  const addHandlerNumber = (amount) => {
-    dispatch({
-      type: "ADD_NUMBER",
-      payload: amount,
-    });
-  };
-  const subtractHandler = () => {
-    dispatch({
-      type: "SUBTRACT",
-    });
-  };
-  const resetHandler = () => {
-    dispatch({
-      type: "RESET",
-    });
-  };
-
-  const authHandler = () => {
-    dispatch({
-      type: "LOGGED_IN",
-    });
-  };
-
   return (
     <section className="--flex-center --100vh --bg-primary">
       <div className="container --bg-light --p2 --m2 --center-all --width-500px">
