@@ -1,7 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
 
 const ReduxCounter = () => {
-  const count = useSelector((state) => state);
+  const count = useSelector((state) => state.count);
+  const auth = useSelector((state) => state.isLoggedIn);
 
   const dispatch = useDispatch();
 
@@ -28,33 +29,47 @@ const ReduxCounter = () => {
     });
   };
 
+  const authHandler = () => {
+    dispatch({
+      type: "LOGGED_IN",
+    });
+  };
+
   return (
     <section className="--flex-center --100vh --bg-primary">
       <div className="container --bg-light --p2 --m2 --center-all --width-500px">
-        <button className=" --btn --btn-danger">Log Out</button>
-        <h1 className="--color-primary">Counter</h1>
+        <button className=" --btn --btn-danger" onClick={authHandler}>
+          {auth ? "Log Out" : "Log In"}
+        </button>
+        {!auth ? (
+          <p className="--m">Kindlly log in</p>
+        ) : (
+          <>
+            <h1 className="--color-primary">Counter</h1>
 
-        <h3>{count}</h3>
+            <h3>{count}</h3>
 
-        <div className=" --flex-center">
-          <button className=" --btn --btn-primary" onClick={addHandler}>
-            Add
-          </button>
+            <div className=" --flex-center">
+              <button className=" --btn --btn-primary" onClick={addHandler}>
+                Add
+              </button>
 
-          <button
-            className=" --btn --btn-primary"
-            onClick={() => addHandlerNumber(5)}
-          >
-            Add 5
-          </button>
+              <button
+                className=" --btn --btn-primary"
+                onClick={() => addHandlerNumber(5)}
+              >
+                Add 5
+              </button>
 
-          <button className=" --btn" onClick={resetHandler}>
-            Reset
-          </button>
-          <button className=" --btn --btn-danger" onClick={subtractHandler}>
-            Subtract
-          </button>
-        </div>
+              <button className=" --btn" onClick={resetHandler}>
+                Reset
+              </button>
+              <button className=" --btn --btn-danger" onClick={subtractHandler}>
+                Subtract
+              </button>
+            </div>
+          </>
+        )}
       </div>
     </section>
   );
