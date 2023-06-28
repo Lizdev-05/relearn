@@ -10,6 +10,13 @@ const ReduxCounter = () => {
       type: "ADD",
     });
   };
+
+  const addHandlerNumber = (amount) => {
+    dispatch({
+      type: "ADD_NUMBER",
+      payload: amount,
+    });
+  };
   const subtractHandler = () => {
     dispatch({
       type: "SUBTRACT",
@@ -23,14 +30,21 @@ const ReduxCounter = () => {
 
   return (
     <section className="--flex-center --100vh --bg-primary">
-      <div className="container --bg-light --p2 --m2 --center-all">
-        <h1>Counter</h1>
+      <div className="container --bg-light --p2 --m2 --center-all --width-500px">
+        <h1 className="--color-primary">Counter</h1>
 
-        <span>{count}</span>
+        <h3>{count}</h3>
 
-        <div className="buttons --flex-center">
+        <div className=" --flex-center">
           <button className=" --btn --btn-primary" onClick={addHandler}>
             Add
+          </button>
+
+          <button
+            className=" --btn --btn-primary"
+            onClick={addHandlerNumber(5)}
+          >
+            Add 5
           </button>
 
           <button className=" --btn" onClick={resetHandler}>
