@@ -1,28 +1,5 @@
 import { legacy_createStore as createStore, combineReducers } from "redux";
-
-const countReducer = (state = 0, action) => {
-  if (action.type === "SUBTRACT") {
-    return state - 1;
-  }
-  if (action.type === "RESET") {
-    return 0;
-  }
-  if (action.type === "ADD") {
-    return state + 1;
-  }
-
-  if (action.type === "ADD_NUMBER") {
-    return state + action.payload;
-  }
-  return state;
-};
-
-const authReducer = (state = true, action) => {
-  if (action.type === "LOGGED_IN") {
-    return (state = !state);
-  }
-  return state;
-};
+import countReducer from "./reducers/countReducer";
 
 const reducers = combineReducers({
   count: countReducer,
