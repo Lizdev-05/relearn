@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 const ReduxCounter = () => {
   const count = useSelector((state) => state);
 
-  const dispatch = useDispatch(count);
+  const dispatch = useDispatch();
 
   const addHandler = () => {
     dispatch({
@@ -42,7 +42,7 @@ const ReduxCounter = () => {
 
           <button
             className=" --btn --btn-primary"
-            onClick={addHandlerNumber(5)}
+            onClick={() => addHandlerNumber(5)}
           >
             Add 5
           </button>

@@ -10,6 +10,10 @@ const countReducer = (state = 0, action) => {
   if (action.type === "ADD") {
     return state + 1;
   }
+
+  if (action.type === "ADD_NUMBER") {
+    return state + action.payload;
+  }
   return state;
 };
 
