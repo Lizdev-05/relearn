@@ -17,6 +17,7 @@ import PractiseTaskList from "./pages/stateTaskManager/practise/PractiseTaskList
 import TaskManagerReducer from "./pages/stateTaskManager/reducerTaskManager/TaskManagerReducer";
 import UserApp from "./pages/userContext/UserApp";
 import GitHubUsers from "./components/customHook/GitHubUsers";
+import ReduxCounter from "./pages/reduxCounter/ReduxCounter";
 
 function App() {
   return (
@@ -38,7 +39,8 @@ function App() {
       {/* <PractiseTaskList /> */}
       {/* <TaskManagerReducer /> */}
       {/* <UserApp /> */}
-      <GitHubUsers />
+      {/* <GitHubUsers /> */}
+      <ReduxCounter />
     </div>
   );
 }
