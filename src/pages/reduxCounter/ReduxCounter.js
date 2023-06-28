@@ -31,6 +31,7 @@ const ReduxCounter = () => {
   return (
     <section className="--flex-center --100vh --bg-primary">
       <div className="container --bg-light --p2 --m2 --center-all --width-500px">
+        <button className=" --btn --btn-danger">Log Out</button>
         <h1 className="--color-primary">Counter</h1>
 
         <h3>{count}</h3>
