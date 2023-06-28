@@ -1,4 +1,3 @@
-import { act } from "react-dom/test-utils";
 import { createStore } from "react-redux";
 
 const countReducer = (state = 0, action) => {
@@ -14,6 +13,6 @@ const countReducer = (state = 0, action) => {
   return state;
 };
 
-const store = createStore();
+const store = createStore(countReducer);
 
 export default store;
