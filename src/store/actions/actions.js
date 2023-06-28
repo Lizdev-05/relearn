@@ -1,28 +1,30 @@
+import { ACTIONS } from "./actionTypes";
+
 export const addHandler = () => {
   return {
-    type: "ADD",
+    type: ACTIONS.ADD,
   };
 };
 
 export const addHandlerNumber = (amount) => {
   return {
-    type: "ADD_NUMBER",
+    type: ACTIONS.ADD_NUMBER,
     payload: amount,
   };
 };
 export const subtractHandler = () => {
   return {
-    type: "SUBTRACT",
+    type: ACTIONS.SUBTRACT,
   };
 };
 export const resetHandler = () => {
   return {
-    type: "RESET",
+    type: ACTIONS.RESET,
   };
 };
 
 export const authHandler = () => {
   return {
-    type: "LOGGED_IN",
+    type: ACTIONS.TOGGLE_AUTH,
   };
 };
