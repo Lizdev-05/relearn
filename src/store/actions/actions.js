@@ -1,28 +1,28 @@
 export const addHandler = () => {
-  dispatch({
+  return {
     type: "ADD",
-  });
+  };
 };
 
 export const addHandlerNumber = (amount) => {
-  dispatch({
+  return {
     type: "ADD_NUMBER",
     payload: amount,
-  });
+  };
 };
 export const subtractHandler = () => {
-  dispatch({
+  return {
     type: "SUBTRACT",
-  });
+  };
 };
 export const resetHandler = () => {
-  dispatch({
+  return {
     type: "RESET",
-  });
+  };
 };
 
 export const authHandler = () => {
-  dispatch({
+  return {
     type: "LOGGED_IN",
-  });
+  };
 };
