@@ -1,5 +1,6 @@
 import { legacy_createStore as createStore, combineReducers } from "redux";
 import countReducer from "./reducers/countReducer";
+import authReducer from "./reducers/authReducer";
 
 const reducers = combineReducers({
   count: countReducer,
