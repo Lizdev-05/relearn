@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const countReducer = createSlice({
+const countSlice = createSlice({
   name: counter,
   initialState: {
     count: 0,
   },
 
-  reducers: {
+  reducer: {
     //    Actions
 
     ADD: (state) => {
@@ -27,5 +27,5 @@ const countReducer = createSlice({
   },
 });
 
-export const { ADD, ADD_NUMBER, SUBTRACT, RESET } = createSlice.action;
-export default countReducer;
+export const { ADD, ADD_NUMBER, SUBTRACT, RESET } = countSlice.actions;
+export default countSlice.reducer;
