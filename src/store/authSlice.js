@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const authSlice = createSlice({
-  name: auth,
+  name: "auth",
   initialState: {
     isLoggedIn: true,
   },
 
-  reducer: {
+  reducers: {
     // ACTION
 
     TOGGLE_AUTH: (state) => {
